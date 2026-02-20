@@ -15,15 +15,13 @@ class Animal {
   }
 
   set health(value) {
-    const indexThis = Animal.alive.indexOf(this);
-
-    if (indexThis !== -1) {
-      this._health = value;
-
-      if (this._health <= 0) {
-        Animal.alive.splice(indexThis, 1);
-      }
+    if (!Animal.alive.includes(this)) {
+      return;
     }
+
+    this._health = value;
+
+    Animal.alive = Animal.alive.filter((beast) => beast._health > 0);
   }
 }
 
