@@ -44,7 +44,7 @@ class Carnivore extends Animal {
       return false;
     }
 
-    if (beast instanceof Carnivore) {
+    if (!(beast instanceof Herbivore)) {
       return false;
     }
 
